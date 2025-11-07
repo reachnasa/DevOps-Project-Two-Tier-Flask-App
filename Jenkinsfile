@@ -8,15 +8,15 @@ pipeline{
         }
         stage('Build image'){
             steps{
-                sh 'sudo docker build -t flask-app .'
+                sh 'docker build -t flask-app .'
             }
         }
         stage('Deploy with docker compose'){
             steps{
                 // existing container if they are running
-                sh 'sudo docker compose down || true'
+                sh 'docker compose down || true'
                 // start app, rebuilding flask image
-                sh 'sudo docker compose up -d --build'
+                sh 'docker compose up -d --build'
             }
         }
     }
