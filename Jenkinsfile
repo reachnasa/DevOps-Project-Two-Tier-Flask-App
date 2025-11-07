@@ -16,7 +16,7 @@ pipeline{
                 // existing container if they are running
                 sh '/usr/local/bin/docker compose down || true'
                 // start app, rebuilding flask image
-                sh '/usr/local/bin/docker compose up -d --build'
+                sh '/usr/local/bin/docker compose -p myproject up -d --build'
             }
         }
     }
