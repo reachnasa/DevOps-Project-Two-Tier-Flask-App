@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Build image'){
             steps{
-                sh 'bash build.sh'
+                sh 'docker build -t flask-app .'
             }
         }
         stage('Deploy with docker compose'){
